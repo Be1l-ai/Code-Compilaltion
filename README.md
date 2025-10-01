@@ -4,15 +4,23 @@
 ## Repository Structure
 ```
 Code-Document-Compilation/
-│-- code/                # Folder containing the codes
-│   ├── math_utils.py          # Sample Python script
-│   ├── basic_calculator.py    # Basic calculator performing addition, subtraction, multiplication, and division
-│   ├── jack_en_poy.py         # Rock-Paper-Scissors (Jack en Poy) game
-│   ├── chatbot.py             # Simple chatbot responding to basic inputs
-│   ├── quiz_game.py           # Simple quiz game with multiple-choice questions
-│   ├── more...                # More codes and project 
-│-- documentation/       # Folder containing documentation files
-│-- README.md            # Documentation of the project
+│-- code/                      # Package containing the project modules
+│   ├── __init__.py            # Makes 'code' a Python package
+│   ├── math_utils/            # Math Utilities package
+│   │   └── __init__.py
+│   ├── basic_calculator/      # Basic Calculator package
+│   │   └── __init__.py
+│   ├── jack_en_poy/           # Rock-Paper-Scissors (Jack en Poy) package
+│   │   └── __init__.py
+│   ├── chatbot/               # Simple Chatbot package
+│   │   └── __init__.py
+│   ├── quiz_game/             # Simple Quiz Game package
+│   │   └── __init__.py
+│   ├── more...                # More packages and modules
+│-- documentation/             # Folder containing documentation files
+│-- README.md                  # Documentation of the project
+│-- requirements.txt                  # Requirements for used dependencies
+│-- tests/                  # Testing of the packages/codes
 ```
 
 ## Projects

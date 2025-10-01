@@ -18,4 +18,5 @@ def jack_en_poy():
     else:
         print("Invalid input! Please choose rock, paper, or scissors.")
 
-jack_en_poy()
+if __name__ == "__main__":
+    jack_en_poy()

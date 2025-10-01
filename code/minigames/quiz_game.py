@@ -1,9 +1,7 @@
 import random
 
-score = 0  
-
 def math_prob(): 
-    global score
+    score = 0
     while True:
         num1, num2 = random.randint(1, 10), random.randint(1, 10)
         ope = random.choice(["+", "-", "*"])
@@ -27,4 +25,5 @@ def math_prob():
         except ValueError:
             print("Error")
 
-math_prob()
+if __name__ == "__main__":
+    math_prob()

@@ -1,4 +1,5 @@
 import random
+
 def guess_number():
     print("Let's play a game")
     number = random.randint(1, 100)
@@ -15,5 +16,7 @@ def guess_number():
                 break
         except ValueError: 
             print("Please enter a number")
-            continue    
-guess_number()
+            continue
+
+if __name__ == "__main__":
+    guess_number()
