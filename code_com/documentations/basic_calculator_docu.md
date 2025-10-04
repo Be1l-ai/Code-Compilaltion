@@ -42,6 +42,3 @@ Result: Error! Division by zero.
 ## Notes
 - This only accpts numeric values for calculations.
 - If an invalid operation is entered, the program displays an error message.
-
-## Author
-This module was created as part of my coding documentation and compilation project.

@@ -68,5 +68,3 @@ print(is_prime(11))
 print(gcd(81, 27))
 ```
 
-## Author
-This module was created as part of my coding documentation and compilation project.

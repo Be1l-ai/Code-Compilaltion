@@ -7,16 +7,16 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Method 1: Import the entire package
-import code
+import code_com as code
 
 # Method 2: Import specific modules
-from code import BasicCalculator, Chatbot, MathUtils
+from code_com import BasicCalculator, Chatbot, MathUtils
 
 # Method 3: Import from submodules directly
-from code.minigames import jack_en_poy, guess_number, math_prob
+from code_com.minigames import jack_en_poy, guess_number, math_prob
 
 # Method 4: Import submodule packages
-from code import basic_calculator, chatbot, math_utils, minigames
+from code_com import basic_calculator, chatbot, math_utils, minigames
 
 
 def test_basic_calculator():
