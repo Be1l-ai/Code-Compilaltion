@@ -20,17 +20,23 @@
             <button type="button" value="1" onclick="appendNumber('1')"> 1 </button>
             <button type="button" value="0" onclick="appendNumber('0')"> 0 </button>
 
+            <button type="button" value="." onclick="appendNumber('.')">.</button>
+            <button type="button" value="&lt;" onclick="appendNumber('&lt;')"> &lt; </button>
             <button type="button" value="+" onclick="appendNumber('+')">+</button>
             <button type="button" value="-" onclick="appendNumber('-')">-</button>
             <button type="button" value="*" onclick="appendNumber('*')">*</button>
             <button type="button" value="/" onclick="appendNumber('/')">/</button>
-            <button type="button" value="^" onclick="appendNumber('**')">^</button>
-            <button type="button" value="=" onclick="appendNumber('=')">=</button>
+            <button type="button" value="^" onclick="appendNumber('^')">^</button>
+            <button type="submit" >=</button>
         </div>
     </form>
     <script>
     function appendNumber(num) {
         document.getElementById('result').value += num;
+    }
+    function deleteNumber() {
+        var currentValue = document.getElementById('result').value;
+        document.getElementById('result').value = currentValue.slice(0, -1);
     }
     </script>
 </body>
