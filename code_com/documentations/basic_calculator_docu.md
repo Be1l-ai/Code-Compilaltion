@@ -1,44 +1,43 @@
-# Basic Calculator Documentation
+# Basic Calculator
 
-## Overview
-The **Basic Calculator** is a simple command-line tool that performs four fundamental arithmetic operations: addition, subtraction, multiplication, and division.
+Simple CLI calculator with basic arithmetic operations.
 
 ## Features
-- Accepts two numerical inputs from the user.
-- Supports the following operations:
-  - Addition (`+`)
-  - Subtraction (`-`)
-  - Multiplication (`*`)
-  - Division (`/`), with error handling for division by zero.
-- Displays the calculated result based on the selected operation.
 
-## How It Works
+- Addition
+- Subtraction
+- Multiplication
+- Division (with zero-check)
 
-### 1. User Input
-The program prompts the user to enter:
-1. The first number
-2. The desired mathematical operation (`+`, `-`, `*`, or `/`)
-3. The second number
+## Methods
 
-### 2. Performing Calculations
-The script processes the input and returns the corresponding result based on the chosen operation.
+python3 code_com/basic_calculator/basic_calculator.py
 
-### 3. Example Usage
-#### Addition:
-```
-Enter first number: 10
-Enter operation (+, -, *, /): +
-Enter second number: 5
-Result: 15.0
-```
-#### Division (with zero handling):
-```
-Enter first number: 8
-Enter operation (+, -, *, /): /
-Enter second number: 0
-Result: Error! Division by zero.
-```
+- `add(a, b)` — Returns a + b
+- `subtract(a, b)` — Returns a - b`
+- `multiply(a, b)` — Returns a * b`
+- `divide(a, b)` — Returns a / b (handles division by zero)
 
 ## Notes
-- This only accpts numeric values for calculations.
-- If an invalid operation is entered, the program displays an error message.
+
+- accepts decimal numbers (like 3.14)
+- returns float results for division
+- if you enter invalid operation it'll tell you
+- handles division by zero without crashing (learned that the hard way lol)
+- made this as my first OOP practice project
+
+## Limitations
+
+- only works with two numbers at a time
+- can't do complex expressions like "2+3*4"
+- no memory functions or anything fancy
+- gotta run it multiple times for multiple calculations
+
+## What I Learned
+
+- how to make classes in python
+- basic error handling
+- user input and output
+- why OOP is useful (makes code reusable!)
+
+check out the Calculator and AdvancedCalculator for more features!

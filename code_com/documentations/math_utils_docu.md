@@ -1,70 +1,41 @@
-# Math Utilities Documentation
+# Math Utilities
 
-## Overview
-The **Math Utilities** module provides basic mathematical functions commonly used in computations. This module includes functions for calculating factorials, checking prime numbers, and finding the greatest common divisor (GCD).
+Collection of mathematical utility functions.
 
-## Functions
+## Features
 
-### 1. `factorial(n)`
-**Description:**
-Calculates the factorial of a given non-negative integer `n`.
+Static methods for common math operations:
 
-**Parameters:**
-- `n` (int): The number to compute the factorial for.
+- `factorial(n)` — Calculate factorial
+- `is_prime(n)` — Check if number is prime
+- `gcd(a, b)` — Greatest common divisor
+- `lcm(a, b)` — Least common multiple
 
-**Returns:**
-- `int`: The factorial of `n` if `n >= 0`.
-- `str`: Error message if `n < 0`.
+## Why Static Methods?
 
-**Example Usage:**
-```python
-print(factorial(5))  # Output: 120
-```
+used @staticmethod decorator because:
+- don't need to create instances (like `utils = MathUtils()`)
+- these functions are self-contained
+- just utility functions, no state to maintain
+- cleaner to use: `MathUtils.factorial(5)` vs `utils.factorial(5)`
 
----
+## Performance Notes
 
-### 2. `is_prime(n)`
-**Description:**
-Checks whether a given number `n` is prime.
+- **factorial:** uses iteration (safer than recursion for large numbers)
+- **is_prime:** only checks up to sqrt(n) for efficiency
+- **gcd:** euclidean algorithm is super fast
+- **lcm:** depends on gcd so it's also efficient
 
-**Parameters:**
-- `n` (int): The number to check.
+## What I Learned
 
-**Returns:**
-- `bool`: `True` if `n` is a prime number, `False` otherwise.
+- static methods and when to use them
+- prime number algorithms
+- mathematical concepts in code
+- importance of handling edge cases
 
-**Example Usage:**
-```python
-print(is_prime(7))  # Output: True
-print(is_prime(10)) # Output: False
-```
+## Limitations
 
----
-
-### 3. `gcd(a, b)`
-**Description:**
-Finds the greatest common divisor (GCD) of two integers `a` and `b`.
-
-**Parameters:**
-- `a` (int): First number.
-- `b` (int): Second number.
-
-**Returns:**
-- `int`: The greatest common divisor of `a` and `b`.
-
-**Example Usage:**
-```python
-print(gcd(48, 18))  # Output: 6
-```
-
-## Usage
-This module can be imported into other Python scripts or executed as a standalone script to test the functions.
-
-```python
-from math_utils import factorial, is_prime, gcd
-
-print(factorial(5))
-print(is_prime(11))
-print(gcd(81, 27))
-```
-
+- factorial can get huge fast (might overflow for very large numbers)
+- no input validation for types (assumes you pass integers)
+- prime checker is basic (for serious use there are better algorithms)
+- no floating point support (integers only)

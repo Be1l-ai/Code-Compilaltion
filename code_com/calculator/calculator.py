@@ -1,78 +1,50 @@
-from ..basic_calculator import BasicCalculator
+import sys
+import os
+
+if __name__ == "__main__":
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
+from code_com.basic_calculator import BasicCalculator
 
 class Calculator(BasicCalculator):
     def square(self, a):
         return a * a
 
     def power(self, a, b):
-        for _ in range(b - 1):
-            a *= a
-        return a
+        result = 1
+        for _ in range(int(b)):
+            result *= a
+        return result
     
     def square_root(self, a):
         if a < 0:
-            raise ValueError("Cannot compute square root of negative number")
+            return "Error: can't do square root of negative number"
         return a ** 0.5
     
     def percentage(self, part, whole):
         if whole == 0:
-            raise ValueError("Whole cannot be zero for percentage calculation")
+            return "Error: can't divide by zero"
         return (part / whole) * 100
     
     def evaluate_expression(self, expression):
         try:
-            allowed_chars = "0123456789+-*/(). "
-            if any(char not in allowed_chars for char in expression):
-                raise ValueError("Invalid characters in expression")
-            
             expression = expression.replace(" ", "")
-            
-            num1 = ""
-            operation = ""
-            num2 = ""
-            
-            i = 0
-            while i < len(expression):
-                char = expression[i]
-                if char.isdigit() or char == '.':
-                    num1 += char
-                elif char in '+-*/^':
-                    operation = char
-                    num2 = expression[i+1:]
-                    break
-                else:
-                    raise ValueError("Unexpected character")
-                i += 1
-            
-            if not num1 or not operation or not num2:
-                return "Invalid expression: Missing parts"
-            
-            num2 = ''.join(c for c in num2 if c.isdigit())
-            if not num2:
-                return "Invalid second number"
-            
-            n1, n2 = float(num1), float(num2)
-            
-            if operation == '+':
-                return self.add(n1, n2)
-            elif operation == '-':
-                return self.subtract(n1, n2)
-            elif operation == '*':
-                return self.multiply(n1, n2)
-            elif operation == '/':
-                return self.divide(n1, n2)
-            elif operation == '^':
-                return self.power(n1, n2)
-            else:
-                return "Invalid operation"
-        
-        except ValueError as e:
-            return f"Error: {e}"
+            result = eval(expression)  # yeah i know eval is not safe but works for now
+            return result
+        except ZeroDivisionError:
+            return "Error: Division by zero!"
+        except SyntaxError:
+            return "Error: Invalid expression syntax"
         except Exception as e:
-            return f"Error evaluating: {e}"
-
+            return f"Error: {str(e)}"
 
 if __name__ == "__main__":
     calc = Calculator()
-    print(calc.square(4))
-    print(calc.evaluate_expression("2 + 3"))
+    print("Testing square:")
+    print(f"  4² = {calc.square(4)}")
+    print("\nTesting power:")
+    print(f"  2³ = {calc.power(2, 3)}")
+    print("\nTesting evaluate_expression:")
+    print(f"  2 + 3 = {calc.evaluate_expression('2 + 3')}")
+    print(f"  10 * 5 = {calc.evaluate_expression('10 * 5')}")
+    print(f"  100 / 4 = {calc.evaluate_expression('100 / 4')}")

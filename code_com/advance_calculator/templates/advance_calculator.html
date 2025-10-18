@@ -2,42 +2,78 @@
 <html>
 <head>
     <title>Advanced Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 15px;
+            font-size: 16px;
+            margin: 2px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
     <h1>Advanced Calculator</h1>
-    <form method="post">
+    
+    <form method="post" action="/advance_calculator">
+        <input type="text" id="expression" name="expression" 
+               value="{{ expression }}" placeholder="Enter expression">
+        
         <div>
-            <input type="text" id="result" name="result" value="result" readonly>
-
-            <button type="button" value="9" onclick="appendNumber('9')"> 9 </button>
-            <button type="button" value="8" onclick="appendNumber('8')"> 8 </button>
-            <button type="button" value="7" onclick="appendNumber('7')"> 7 </button>
-            <button type="button" value="6" onclick="appendNumber('6')"> 6 </button>
-            <button type="button" value="5" onclick="appendNumber('5')"> 5 </button>
-            <button type="button" value="4" onclick="appendNumber('4')"> 4 </button>
-            <button type="button" value="3" onclick="appendNumber('3')"> 3 </button>
-            <button type="button" value="2" onclick="appendNumber('2')"> 2 </button>
-            <button type="button" value="1" onclick="appendNumber('1')"> 1 </button>
-            <button type="button" value="0" onclick="appendNumber('0')"> 0 </button>
-
-            <button type="button" value="." onclick="appendNumber('.')">.</button>
-            <button type="button" value="&lt;" onclick="appendNumber('&lt;')"> &lt; </button>
-            <button type="button" value="+" onclick="appendNumber('+')">+</button>
-            <button type="button" value="-" onclick="appendNumber('-')">-</button>
-            <button type="button" value="*" onclick="appendNumber('*')">*</button>
-            <button type="button" value="/" onclick="appendNumber('/')">/</button>
-            <button type="button" value="^" onclick="appendNumber('^')">^</button>
-            <button type="submit" >=</button>
+            <button type="button" onclick="add('7')">7</button>
+            <button type="button" onclick="add('8')">8</button>
+            <button type="button" onclick="add('9')">9</button>
+            <button type="button" onclick="add('/')">/</button>
+            <br>
+            <button type="button" onclick="add('4')">4</button>
+            <button type="button" onclick="add('5')">5</button>
+            <button type="button" onclick="add('6')">6</button>
+            <button type="button" onclick="add('*')">*</button>
+            <br>
+            <button type="button" onclick="add('1')">1</button>
+            <button type="button" onclick="add('2')">2</button>
+            <button type="button" onclick="add('3')">3</button>
+            <button type="button" onclick="add('-')">-</button>
+            <br>
+            <button type="button" onclick="add('0')">0</button>
+            <button type="button" onclick="add('.')">.</button>
+            <button type="button" onclick="clear()">C</button>
+            <button type="button" onclick="add('+')">+</button>
+            <br><br>
+            <button type="button" onclick="add('(')">(</button>
+            <button type="button" onclick="add(')')">)</button>
+            <button type="submit">=</button>
         </div>
     </form>
+    
+    {% if result is not none %}
+    <div class="result">
+        Result: {{ result }}
+    </div>
+    {% endif %}
+    
     <script>
-    function appendNumber(num) {
-        document.getElementById('result').value += num;
-    }
-    function deleteNumber() {
-        var currentValue = document.getElementById('result').value;
-        document.getElementById('result').value = currentValue.slice(0, -1);
-    }
+        function add(value) {
+            document.getElementById('expression').value += value;
+        }
+        function clear() {
+            document.getElementById('expression').value = '';
+        }
     </script>
 </body>
 </html> 

@@ -1,3 +1,3 @@
-from . import calculator
+from .calculator import Calculator
 
-__all__ = ['calculator']
+__all__ = ['Calculator']

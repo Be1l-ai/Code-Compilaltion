@@ -31,6 +31,10 @@ class MathUtils:
             b = a % b
             a = temp
         return a
+    
+    @staticmethod
+    def lcm(a, b):
+        return abs(a * b) // MathUtils.gcd(a, b)
 
 if __name__ == "__main__":
     num = 5
@@ -39,3 +43,4 @@ if __name__ == "__main__":
     print("Is", prime_test, "a prime number?", MathUtils.is_prime(prime_test))
     a, b = 48, 18
     print("GCD of", a, "and", b, "is", MathUtils.gcd(a, b))
+    print("LCM of", a, "and", b, "is", MathUtils.lcm(a, b))
